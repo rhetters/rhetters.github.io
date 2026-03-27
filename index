@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rhetters Game World - Original browser games created by Rhett.">
+    <title>Rhetters • Game World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        .hero-font {
+            font-family: 'Press Start 2P', system-ui;
+        }
+        
+        .glow {
+            text-shadow: 0 0 25px #10b981;
+        }
+        
+        .game-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px -15px rgb(16 185 129 / 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #10b981;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .game-image {
+            width: 100%;
+            height: 224px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-emerald-500/30">
+        <div class="max-w-6xl mx-auto px-8 py-6 flex items-center justify-between">
+            <div class="flex items-center gap-x-4">
+                <div class="w-10 h-10 bg-emerald-500 rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg shadow-emerald-500/50">R</div>
+                <h1 class="text-3xl font-bold tracking-tighter hero-font glow">RHETTERS</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-10 text-lg">
+                <a href="#games" onclick="smoothScrollTo('games')" class="nav-link text-emerald-100 hover:text-white transition-colors">Games</a>
+                <a href="#about" onclick="smoothScrollTo('about')" class="nav-link text-emerald-100 hover:text-white transition-colors">About</a>
+            </div>
+            
+            <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-emerald-400">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-emerald-500/30 px-8 py-8 text-center space-y-6 text-xl">
+            <a href="#games" onclick="toggleMobileMenu();smoothScrollTo('games')" class="block hover:text-emerald-400">Games</a>
+            <a href="#about" onclick="toggleMobileMenu();smoothScrollTo('about')" class="block hover:text-emerald-400">About</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="min-h-screen flex items-center bg-gradient-to-br from-slate-950 via-emerald-950 to-slate-950">
+        <div class="max-w-6xl mx-auto px-8 text-center">
+            <div class="inline-block mb-8 px-8 py-3 bg-emerald-900/50 text-emerald-300 text-sm font-medium tracking-widest rounded-3xl border border-emerald-500/30">
+                ORIGINAL GAMES BY RHETT
+            </div>
+            
+            <h1 class="text-7xl md:text-[5.5rem] font-bold tracking-tighter hero-font glow leading-none mb-10">
+                WELCOME TO<br>THE GAME WORLD
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-2xl text-emerald-200 mb-12">
+                A collection of fun browser games created by Rhett.
+            </p>
+            
+            <a href="#games" onclick="smoothScrollTo('games')"
+               class="inline-flex items-center gap-x-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold text-2xl px-12 py-6 rounded-3xl transition-all">
+                EXPLORE THE GAMES
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- GAMES SECTION -->
+    <section id="games" class="py-24 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold tracking-tight hero-font glow mb-4">MY GAMES</h2>
+                <p class="text-emerald-200 text-xl">Click any game to play</p>
+            </div>
+            
+            <div id="gamesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Game 1: Racing Mayhem -->
+                <div class="game-card bg-slate-800 border border-emerald-500/20 rounded-3xl overflow-hidden">
+                    <img src="https://picsum.photos/id/1015/600/300" 
+                         alt="Racing Mayhem" 
+                         class="game-image">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-3">Racing Mayhem</h3>
+                        <p class="text-slate-400 mb-8 line-clamp-3">
+                            High-speed racing with power-ups, crazy tracks, and intense competition. Beat the clock!
+                        </p>
+                        <a href="https://rhetters.github.io/YOUR-RACING-GAME-REPO" 
+                           target="_blank"
+                           class="block w-full text-center py-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-2xl transition-all">
+                            PLAY NOW
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Game 2: Puzzle Quest -->
+                <div class="game-card bg-slate-800 border border-emerald-500/20 rounded-3xl overflow-hidden">
+                    <img src="https://picsum.photos/id/201/600/300" 
+                         alt="Puzzle Quest" 
+                         class="game-image">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-3">Puzzle Quest</h3>
+                        <p class="text-slate-400 mb-8 line-clamp-3">
+                            Brain-teasing puzzles that get harder with every level. Match, rotate, and solve your way to victory!
+                        </p>
+                        <a href="https://rhetters.github.io/YOUR-PUZZLE-GAME-REPO" 
+                           target="_blank"
+                           class="block w-full text-center py-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-2xl transition-all">
+                            PLAY NOW
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Game 3: Platform Adventure -->
+                <div class="game-card bg-slate-800 border border-emerald-500/20 rounded-3xl overflow-hidden">
+                    <img src="https://picsum.photos/id/870/600/300" 
+                         alt="Platform Adventure" 
+                         class="game-image">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-3">Platform Adventure</h3>
+                        <p class="text-slate-400 mb-8 line-clamp-3">
+                            Jump, dodge, and explore colorful worlds. Collect coins and reach the end before time runs out!
+                        </p>
+                        <a href="https://rhetters.github.io/YOUR-PLATFORM-GAME-REPO" 
+                           target="_blank"
+                           class="block w-full text-center py-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold rounded-2xl transition-all">
+                            PLAY NOW
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 bg-slate-950">
+        <div class="max-w-4xl mx-auto px-8">
+            <div class="grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-3">
+                    <h2 class="text-5xl font-bold tracking-tight hero-font glow mb-8">Hi, I'm Rhett</h2>
+                    <p class="text-emerald-100 text-2xl leading-relaxed">
+                        Friends and family call me Rhetters. I enjoy creating games and I love sharing them so others can play!
+                    </p>
+                </div>
+                
+                <div class="md:col-span-2 bg-slate-900 p-10 rounded-3xl border border-emerald-500/30">
+                    <div class="text-emerald-300 text-lg italic mb-8">
+                        “Making games is one of my favorite things to do. I hope you enjoy playing them as much as I enjoyed building them.”
+                    </div>
+                    <div class="flex items-center gap-x-4">
+                        <div class="w-14 h-14 bg-emerald-500 rounded-2xl flex items-center justify-center text-3xl">🎮</div>
+                        <div>
+                            <div class="font-semibold">Rhett • Rhetters</div>
+                            <div class="text-emerald-200 text-sm">Game Creator</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-emerald-500/30">
+        <div class="max-w-6xl mx-auto px-8 text-center">
+            <p class="text-emerald-200">Built by Rhett</p>
+            <p class="text-xs text-slate-500 mt-6">© Rhetters Game World</p>
+        </div>
+    </footer>
+
+    <script>
+        function smoothScrollTo(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        window.onload = function() {
+            console.log('%cRhetters Game World loaded', 'color:#10b981; font-size:14px;');
+        };
+    </script>
+</body>
+</html>
